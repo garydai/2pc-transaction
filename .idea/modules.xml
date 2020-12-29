@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/server2/server2.iml" filepath="$PROJECT_DIR$/server2/server2.iml" />
       <module fileurl="file://$PROJECT_DIR$/test-transaction.iml" filepath="$PROJECT_DIR$/test-transaction.iml" />
       <module fileurl="file://$PROJECT_DIR$/transaction/transaction.iml" filepath="$PROJECT_DIR$/transaction/transaction.iml" />
+      <module fileurl="file://$PROJECT_DIR$/txmanager/txmanager.iml" filepath="$PROJECT_DIR$/txmanager/txmanager.iml" />
     </modules>
   </component>
 </project>

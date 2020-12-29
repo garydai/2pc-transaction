@@ -7,23 +7,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1afda31c-c7ab-4b67-88c4-349c849a59e4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/server1/src/main/java/com/luban/DemoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server1/src/main/java/com/luban/DemoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server1/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/server1/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server2/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server2/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server2/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/server2/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/transaction/src/main/java/com/luban/annotation/LbTransactional.java" beforeDir="false" afterPath="$PROJECT_DIR$/transaction/src/main/java/com/luban/annotation/LbTransactional.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/transaction/src/main/java/com/luban/aspect/ConnectionAspect.java" beforeDir="false" afterPath="$PROJECT_DIR$/transaction/src/main/java/com/luban/aspect/ConnectionAspect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/transaction/src/main/java/com/luban/aspect/TransactionAspect.java" beforeDir="false" afterPath="$PROJECT_DIR$/transaction/src/main/java/com/luban/aspect/TransactionAspect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/transaction/src/main/java/com/luban/connection/LbConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/transaction/src/main/java/com/luban/connection/LbConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/transaction/src/main/java/com/luban/intercept/RequestInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/transaction/src/main/java/com/luban/intercept/RequestInterceptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/transaction/src/main/java/com/luban/netty/NettyClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/transaction/src/main/java/com/luban/netty/NettyClientHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/transaction/src/main/java/com/luban/tack/HttpUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/transaction/src/main/java/com/luban/tack/HttpUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/transaction/src/main/java/com/luban/tack/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/transaction/src/main/java/com/luban/tack/Task.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/transaction/src/main/java/com/luban/transaction/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/transaction/src/main/java/com/luban/transaction/Transaction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/transaction/src/main/java/com/luban/transaction/TransactionMangage.java" beforeDir="false" afterPath="$PROJECT_DIR$/transaction/src/main/java/com/luban/transaction/TransactionMangage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/transaction/src/main/java/com/luban/transaction/TransactionType.java" beforeDir="false" afterPath="$PROJECT_DIR$/transaction/src/main/java/com/luban/transaction/TransactionType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/txmanager/src/main/java/NettyServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/txmanager/src/main/java/NettyServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/txmanager/src/main/java/NettyServerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/txmanager/src/main/java/NettyServerHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/txmanager/txmanager.iml" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -91,7 +81,7 @@
       <workItem from="1571440500357" duration="629000" />
       <workItem from="1571723765862" duration="512000" />
       <workItem from="1585487242546" duration="2385000" />
-      <workItem from="1609211537952" duration="609000" />
+      <workItem from="1609211537952" duration="1203000" />
     </task>
     <servers />
   </component>

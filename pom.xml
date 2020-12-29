@@ -6,6 +6,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>transaction</module>
+        <module>txmanager</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
