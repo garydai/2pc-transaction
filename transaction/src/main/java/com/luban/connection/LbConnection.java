@@ -8,13 +8,10 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.Executor;
 
-
 public class LbConnection implements Connection {
-
 
     //spring 实现的Connection
     private Connection connection;
-
 
     //本地事物对象
     private Transaction transaction;
@@ -27,8 +24,8 @@ public class LbConnection implements Connection {
     @Override
     public void commit() throws SQLException {
 
-        //拿到需要唤醒的事物对象
-        //..提交之前先等待  等待事务管理者的通知
+        //拿到需要唤醒的事务对象
+        //提交之前先等待  等待事务管理者的通知
         new Thread() {
             @Override
             public void run() {

@@ -15,7 +15,7 @@ public class TransactionMangage {
     private static ThreadLocal<String> current = new ThreadLocal<>();
     private static ThreadLocal<Transaction> currentTransaction = new ThreadLocal<>();
 
-    //当前事物数量标记
+    //当前事务数量标记
     private static ThreadLocal<Integer> currentCount = new ThreadLocal<>();
 
     private static final Map<String, Map<String, Transaction>> GROUP_MAP = new HashMap<>();
@@ -87,12 +87,10 @@ public class TransactionMangage {
 
 
     public static String getCurrent() {
-
         return current.get();
     }
 
     public static void setCurrent(String groupId) {
-
         current.set(groupId);
     }
 

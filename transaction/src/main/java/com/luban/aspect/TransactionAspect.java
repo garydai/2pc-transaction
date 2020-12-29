@@ -30,17 +30,17 @@ public class TransactionAspect {
             //null
             group = TransactionMangage.getCurrent();
         }
-        //他肯定存在分布式事物里面
+        //他肯定存在分布式事务里面
 
 
-        //创建事物对象
+        //创建事务对象
         Transaction transaction = TransactionMangage.createTransaction(group);
 
         //执行本地逻辑
         try {
-            //Spring 会帮我们执行mysql的事物  一直等待
+            //Spring 会帮我们执行mysql的事务  一直等待
             proceedingJoinPoint.proceed();
-            //提交本地事物状态  ---commit
+            //提交本地事务状态  ---commit
             TransactionMangage.commitTransaction(transaction, annotation.isEnd(), TransactionType.COMMIT);
         } catch (Throwable throwable) {
             // 回滚

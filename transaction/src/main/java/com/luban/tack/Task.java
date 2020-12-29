@@ -4,17 +4,16 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-
 public class Task {
 
     private Lock lock = new ReentrantLock();
     private Condition condition = lock.newCondition();
 
-
     //等待
     public void waitTask() {
+        lock.lock();
+
         try {
-            lock.lock();
             condition.await();
         } catch (InterruptedException e) {
             e.printStackTrace();

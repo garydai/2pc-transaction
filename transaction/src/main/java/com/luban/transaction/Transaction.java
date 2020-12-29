@@ -9,7 +9,7 @@ public class Transaction {
 
     private String groupId;
 
-    //事物状态  commit  还是 rollback
+    //事务状态  commit  还是 rollback
 
     private TransactionType transactionType;
 

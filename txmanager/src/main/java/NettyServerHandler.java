@@ -81,9 +81,6 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
             List<JSONObject> resultList = new ArrayList<JSONObject>();
             // 如果已经接收到结束事务的标记，比较事务是否已经全部到达，如果已经全部到达则看是否需要回滚
             if (isEndMap.get(groupId) && transactionCountMap.get(groupId).equals(transactionTypeMap.get(groupId).size())) {
-                //comm
-                //commit
-                //commit
                 String resultCommand = "";
                 if (transactionTypeMap.get(groupId).contains("ROLLBACK")) {
                     resultCommand = "rollback";

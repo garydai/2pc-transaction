@@ -28,7 +28,7 @@ public class NettyClientHandler extends ChannelInboundHandlerAdapter {
             String groupId = jsonObject.getString("groupId");
             String command = jsonObject.getString("command");
             String transactionId = jsonObject.getString("transactionId");
-            //拿到通知的事物对象
+            // 拿到通知的事务对象
             Transaction transaction = TransactionMangage.getTransactionById(groupId, transactionId);
             if (transaction != null) {
                 if (command.equals("rollback")) {
@@ -39,7 +39,7 @@ public class NettyClientHandler extends ChannelInboundHandlerAdapter {
                 transaction.getTask().signalTask();
             }
             // 对事务进行操作
-            //给指定事物放行
+            // 给指定事务放行
         }
 
 
