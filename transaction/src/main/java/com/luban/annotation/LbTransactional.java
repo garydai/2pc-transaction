@@ -11,6 +11,7 @@ import java.lang.annotation.Target;
 public @interface LbTransactional {
 
     boolean isStart() default false;
+
     boolean isEnd() default false;
 
 }

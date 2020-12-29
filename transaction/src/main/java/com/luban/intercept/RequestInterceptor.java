@@ -15,7 +15,7 @@ public class RequestInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         String groupId = request.getHeader("groupId");
         String transactionCount = request.getHeader("transactionCount");
-        TransactionMangage.setTransactionCount(Integer.valueOf(transactionCount==null? "0":transactionCount));
+        TransactionMangage.setTransactionCount(Integer.valueOf(transactionCount == null ? "0" : transactionCount));
         TransactionMangage.setCurrent(groupId);
         return true;
     }

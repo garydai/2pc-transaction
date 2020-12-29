@@ -1,6 +1,5 @@
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.alibaba.fastjson.serializer.SerializerFeature;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
@@ -44,6 +43,7 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
      * 创建事务组，并且添加保存事务
      * 并且需要判断，如果所有事务都已经执行了（有结果了，要么回滚，要么提交），且其中有一个事务需要回滚，那么通知所有客户端进行回滚
      * 否则，则通知所有客户端进行提交
+     *
      * @param ctx
      * @param msg
      * @throws Exception
@@ -69,8 +69,8 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
         } else if ("add".equals(command)) {
             // 加入事务组
             JSONObject transaction = new JSONObject();
-            transaction.put("transactionId",transactionId);
-            transaction.put("transactionType",transactionType);
+            transaction.put("transactionId", transactionId);
+            transaction.put("transactionType", transactionType);
             transactionTypeMap.get(groupId).add(transaction);
 
             if (isEnd) {
@@ -80,12 +80,12 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
 
             List<JSONObject> resultList = new ArrayList<JSONObject>();
             // 如果已经接收到结束事务的标记，比较事务是否已经全部到达，如果已经全部到达则看是否需要回滚
-            if (isEndMap.get(groupId)&& transactionCountMap.get(groupId).equals(transactionTypeMap.get(groupId).size())) {
-                //commit
+            if (isEndMap.get(groupId) && transactionCountMap.get(groupId).equals(transactionTypeMap.get(groupId).size())) {
+                //comm
                 //commit
                 //commit
                 String resultCommand = "";
-                if (transactionTypeMap.get(groupId).contains("ROLLBACK")){
+                if (transactionTypeMap.get(groupId).contains("ROLLBACK")) {
                     resultCommand = "rollback";
                 } else {
                     resultCommand = "commit";
@@ -93,8 +93,8 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
                 for (JSONObject o : transactionTypeMap.get(groupId)) {
                     JSONObject result = new JSONObject();
                     result.put("groupId", groupId);
-                    result.put("transactionId",o.get("transactionId"));
-                    result.put("command",resultCommand);
+                    result.put("transactionId", o.get("transactionId"));
+                    result.put("command", resultCommand);
                     resultList.add(result);
                 }
                 sendResult(resultList);

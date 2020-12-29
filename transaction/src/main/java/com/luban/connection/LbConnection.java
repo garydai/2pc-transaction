@@ -8,22 +8,18 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.Executor;
 
-/**
- * 需要咨询java高级VIP课程的同学可以加安其拉老师的QQ：3164703201
- * 需要视频资料的可以添加白浅老师的QQ：2207192173
- * author：鲁班学院-商鞅老师
- */
+
 public class LbConnection implements Connection {
 
 
     //spring 实现的Connection
-    private  Connection connection;
+    private Connection connection;
 
 
     //本地事物对象
     private Transaction transaction;
 
-    public  LbConnection(Connection connection,Transaction transaction){
+    public LbConnection(Connection connection, Transaction transaction) {
         this.connection = connection;
         this.transaction = transaction;
     }
@@ -33,18 +29,18 @@ public class LbConnection implements Connection {
 
         //拿到需要唤醒的事物对象
         //..提交之前先等待  等待事务管理者的通知
-        new Thread(){
+        new Thread() {
             @Override
             public void run() {
                 transaction.getTask().waitTask();
                 try {
-                    if (transaction.getTransactionType().equals(TransactionType.COMMIT)){
+                    if (transaction.getTransactionType().equals(TransactionType.COMMIT)) {
                         connection.commit();
-                    }else {
+                    } else {
                         connection.rollback();
                     }
                     connection.close();
-                }catch (Exception e){
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
 
@@ -54,11 +50,10 @@ public class LbConnection implements Connection {
     }
 
 
-
     @Override
     public void rollback() throws SQLException {
 
-        new Thread(){
+        new Thread() {
             @Override
             public void run() {
                 transaction.getTask().waitTask();
@@ -72,7 +67,6 @@ public class LbConnection implements Connection {
         }.start();
 
     }
-
 
 
     @Override

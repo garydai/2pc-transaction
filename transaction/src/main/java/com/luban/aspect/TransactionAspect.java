@@ -11,25 +11,21 @@ import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-/**
- * 需要咨询java高级VIP课程的同学可以加安其拉老师的QQ：3164703201
- * 需要视频资料的可以添加白浅老师的QQ：2207192173
- * author：鲁班学院-商鞅老师
- */
+
 @Order(10000)
 @Aspect
 @Component
 public class TransactionAspect {
 
     @Around("@annotation(com.luban.annotation.LbTransactional)")
-    public void invoke(ProceedingJoinPoint proceedingJoinPoint){
+    public void invoke(ProceedingJoinPoint proceedingJoinPoint) {
         MethodSignature signature = (MethodSignature) proceedingJoinPoint.getSignature();
         LbTransactional annotation = signature.getMethod().getAnnotation(LbTransactional.class);
         String group = "";
         if (annotation.isStart()) {
             //创建事务组
-           group  = TransactionMangage.createGroup();
-        }else{
+            group = TransactionMangage.createGroup();
+        } else {
             //拿到当前事务组的ID
             //null
             group = TransactionMangage.getCurrent();
@@ -39,16 +35,16 @@ public class TransactionAspect {
 
         //创建事物对象
         Transaction transaction = TransactionMangage.createTransaction(group);
-        
+
         //执行本地逻辑
         try {
             //Spring 会帮我们执行mysql的事物  一直等待
-           proceedingJoinPoint.proceed();
+            proceedingJoinPoint.proceed();
             //提交本地事物状态  ---commit
-            TransactionMangage.commitTransaction(transaction,annotation.isEnd(), TransactionType.COMMIT);
+            TransactionMangage.commitTransaction(transaction, annotation.isEnd(), TransactionType.COMMIT);
         } catch (Throwable throwable) {
             // 回滚
-            TransactionMangage.commitTransaction(transaction,annotation.isEnd(), TransactionType.ROLLBACK);
+            TransactionMangage.commitTransaction(transaction, annotation.isEnd(), TransactionType.ROLLBACK);
             throwable.printStackTrace();
 
         }

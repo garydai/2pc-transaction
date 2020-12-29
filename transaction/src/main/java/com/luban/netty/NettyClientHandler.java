@@ -30,10 +30,10 @@ public class NettyClientHandler extends ChannelInboundHandlerAdapter {
             String transactionId = jsonObject.getString("transactionId");
             //拿到通知的事物对象
             Transaction transaction = TransactionMangage.getTransactionById(groupId, transactionId);
-            if (transaction!=null){
-                if (command.equals("rollback")){
+            if (transaction != null) {
+                if (command.equals("rollback")) {
                     transaction.setTransactionType(TransactionType.ROLLBACK);
-                }else{
+                } else {
                     transaction.setTransactionType(TransactionType.COMMIT);
                 }
                 transaction.getTask().signalTask();
